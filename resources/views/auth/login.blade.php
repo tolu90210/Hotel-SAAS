@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="Real estate, Property sale, Property buy">
+	<meta name="description" content="Homy is a beautiful website template designed for Real Estate Agency.">
+    <meta property="og:site_name" content="Homy">
+    <meta property="og:url" content="https://creativegigstf.com">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Homy-Real Estate HTML5 Template & Dashboard">
+	<meta name='og:image' content='{{ asset('backend/assets/images/assets/ogg.png') }}'>
+	<!-- For IE -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- For Resposive Device -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- For Window Tab Color -->
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#0D1A1C">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#0D1A1C">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#0D1A1C">
+	<title>Homy Hotel Management Login</title>
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" sizes="56x56" href="{{ asset('backend/assets/images/fav-icon/icon.png') }}">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/bootstrap.min.css') }}" media="all">
+	<!-- Main style sheet -->
+	<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/style.min.css') }}" media="all">
+	<!-- responsive style sheet -->
+	<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/responsive.css') }}" media="all">
+
+	<!-- Fix Internet Explorer ______________________________________-->
+	<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="vendor/html5shiv.js"></script>
+			<script src="vendor/respond.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+	<div class="main-page-wrapper">
+		<!-- ===================================================
+			Loading Transition
+		==================================================== -->
+		<div id="preloader">
+			<div id="ctn-preloader" class="ctn-preloader">
+				<div class="icon"><img src="{{ asset('backend/assets/images/loader.gif') }}" alt="" class="m-auto d-block" width="64"></div>
+			</div>
+		</div>
+
+
+                <div class="container">
+                    <div class="user-data-form modal-content">
+
+						<div class="form-wrapper m-auto">
+							
+							<div class="tab-content mt-100">
+								<div class="tab-pane show active" role="tabpanel" id="fc1">
+									<div class="text-center mb-20">
+										<h2>Welcome Back!</h2>
+										{{-- <p class="fs-20 color-dark">Still don't have an account? <a href="#">Sign up</a></p> --}}
+									</div>
+									<form method="POST" action="{{ route('login') }}">
+                                        @csrf
+										<div class="row">
+											<div class="col-12">
+												<div class="input-group-meta position-relative mb-25">
+													<label>Email*</label>
+													<input type="email" id="email" placeholder="Youremail@gmail.com" name="email" required>
+                                                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="input-group-meta position-relative mb-20">
+													<label>Password*</label>
+													<input type="password" id="password" name="password" placeholder="Enter Password" class="pass_log_id" required>
+													<span class="placeholder_icon"><span class="passVicon"><img src="{{ asset('backend/assets/images/icon/icon_68.svg') }}" alt=""></span></span>
+                                                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="agreement-checkbox d-flex justify-content-between align-items-center">
+													<div>
+														<input type="checkbox" id="remember_me" name="remember">
+														<label for="remember_me">Keep me logged in</label>
+													</div>
+													{{-- <a href="#">Forget Password?</a> --}}
+												</div> <!-- /.agreement-checkbox -->
+											</div>
+											<div class="col-12">
+												<button class="btn-two w-100 text-uppercase d-block mt-20">Login</button>
+											</div>
+										</div>
+									</form>
+								</div>
+								
+							</div>
+							
+						</div>
+						<!-- /.form-wrapper -->
+                    </div>
+                    <!-- /.user-data-form -->
+                </div>
+
+
+
+
+
+
+		<!-- Optional JavaScript _____________________________  -->
+
+		<!-- jQuery first, then Bootstrap JS -->
+		<!-- jQuery -->
+		<script src="{{ asset('backend/assets/vendor/jquery.min.js') }}"></script>
+		<!-- Bootstrap JS -->
+		<script src="{{ asset('backend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+		<!-- WOW js -->
+		<script src="{{ asset('backend/assets/vendor/wow/wow.min.js') }}"></script>
+		<!-- Slick Slider -->
+		<script src="{{ asset('backend/assets/vendor/slick/slick.min.js') }}"></script>
+		<!-- Fancybox -->
+		<script src="{{ asset('backend/assets/vendor/fancybox/fancybox.umd.js') }}"></script>
+		<!-- Lazy -->
+		<script src="{{ asset('backend/assets/vendor/jquery.lazy.min.js') }}"></script>
+		<!-- js Counter -->
+		<script src="{{ asset('backend/assets/vendor/jquery.counterup.min.js') }}"></script>
+		<script src="{{ asset('backend/assets/vendor/jquery.waypoints.min.js') }}"></script>
+		<!-- Nice Select -->
+		<script src="{{ asset('backend/assets/vendor/nice-select/jquery.nice-select.min.js') }}"></script>
+		<!-- validator js -->
+		<script src="{{ asset('backend/assets/vendor/validator.js') }}"></script>
+
+		<!-- Theme js -->
+		<script src="{{ asset('backend/assets/js/theme.js') }}"></script>
+	</div> <!-- /.main-page-wrapper -->
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- <x-guest-layout>
+    <!-- Session Status -->
+    <x-auth-session-status class="mb-4" :status="session('status')" />
+
+    <form method="POST" action="{{ route('login') }}">
+        @csrf
+
+        <!-- Email Address -->
+        <div>
+            <x-input-label for="email" :value="__('Email')" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+
+        <!-- Password -->
+        <div class="mt-4">
+            <x-input-label for="password" :value="__('Password')" />
+
+            <x-text-input id="password" class="block mt-1 w-full"
+                            type="password"
+                            name="password"
+                            required autocomplete="current-password" />
+
+            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        </div>
+
+        <!-- Remember Me -->
+        <div class="block mt-4">
+            <label for="remember_me" class="inline-flex items-center">
+                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
+                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+            </label>
+        </div>
+
+        <div class="flex items-center justify-end mt-4">
+            @if (Route::has('password.request'))
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                    {{ __('Forgot your password?') }}
+                </a>
+            @endif
+
+            <x-primary-button class="ms-3">
+                {{ __('Log in') }}
+            </x-primary-button>
+        </div>
+    </form>
+</x-guest-layout> --}}

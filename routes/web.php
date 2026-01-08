@@ -21,3 +21,10 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::get('/logout', [AdminController::class, 'AdminDestroy'])->name('admin.logout');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
+    Route::post('/admin/profile/store', [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
+    Route::get('/change/password', [AdminController::class, 'ChangePassword'])->name('change.password');
+    Route::post('/update/password', [AdminController::class, 'UpdatePassword'])->name('update.password'); 
+});

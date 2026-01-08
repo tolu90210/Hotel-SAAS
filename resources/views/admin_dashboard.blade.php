@@ -33,6 +33,7 @@
 	<!-- responsive style sheet -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/responsive.css') }}" media="all">
 
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 	<!-- Fix Internet Explorer ______________________________________-->
 	<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -133,6 +134,30 @@
 
 		<!-- Theme js -->
 		<script src="{{ asset('backend/assets/js/theme.js') }}"></script>
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script>
+        @if(Session::has('message'))
+        var type = "{{ Session::get('alert-type','info') }}"
+        switch(type){
+            case 'info':
+                toastr.info(" {{ Session::get('message') }} ");
+            break;
+            
+            case 'success':
+                toastr.success(" {{ Session::get('message') }} ");
+            break;
+            
+            case 'warning':
+                toastr.warning(" {{ Session::get('message') }} ");
+            break;
+            
+            case 'error':
+                toastr.error(" {{ Session::get('message') }} ");
+                break; 
+        }
+        @endif 
+        </script>
 	</div> <!-- /.main-page-wrapper -->
 </body>
 

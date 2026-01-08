@@ -5,8 +5,7 @@
 							<span></span>
 						</button>
 						<form action="#" class="search-form ms-auto">
-							<input type="text" placeholder="Search here..">
-							<button><img src="{{ asset('backend/assets/images/lazy.svg') }}" data-src="{{ asset('backend/assets/images/icon/icon_43.svg') }}" alt="" class="lazy-img m-auto"></button>
+							
 						</form>
 						<div class="profile-notification position-relative dropdown-center ms-3 ms-md-5 me-4">
 							<button class="noti-btn dropdown-toggle" type="button" id="notification-dropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
@@ -42,25 +41,26 @@
 								</li>
 							</ul>
 						</div>
-						<div class="d-none d-md-block me-3">
-							<a href="add-property.html" class="btn-two"><span>Add Listing</span> <i class="fa-thin fa-arrow-up-right"></i></a>
-						</div>
+
+                        @php
+                            $id = Auth::user()->id;
+                            $adminData = App\Models\User::find($id);
+                        @endphp
+						
 						<div class="user-data position-relative">
 							<button class="user-avatar online position-relative rounded-circle dropdown-toggle" type="button" id="profile-dropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-								<img src="{{ asset('backend/assets/images/lazy.svg') }}" data-src="{{ asset('backend/assets/images/avatar_01.jpg') }}" alt="" class="lazy-img">
+								<img src="{{ (!empty($adminData->photo)) ? url('upload/admin_image/'.$adminData->photo) : url('upload/no_image.jpg') }}" alt="" class="lazy-img">
 							</button>
 							<!-- /.user-avatar -->
 							<div class="user-name-data">
 								<ul class="dropdown-menu" aria-labelledby="profile-dropdown">
 									<li>
-										<a class="dropdown-item d-flex align-items-center" href="profile.html"><img src="{{ asset('backend/assets/images/lazy.svg') }}" data-src="{{ asset('backend/assets/images/icon/icon_23.svg') }}" alt="" class="lazy-img"><span class="ms-2 ps-1">Profile</span></a>
+										<a class="dropdown-item d-flex align-items-center" href="{{ route('admin.profile')  }}"><img src="{{ asset('backend/assets/images/lazy.svg') }}" data-src="{{ asset('backend/assets/images/icon/icon_23.svg') }}" alt="" class="lazy-img"><span class="ms-2 ps-1">Profile</span></a>
 									</li>
 									<li>
-										<a class="dropdown-item d-flex align-items-center" href="account-settings.html"><img src="{{ asset('backend/assets/images/lazy.svg') }}" data-src="{{ asset('backend/assets/images/icon/icon_24.svg') }}" alt="" class="lazy-img"><span class="ms-2 ps-1">Account Settings</span></a>
+										<a class="dropdown-item d-flex align-items-center" href="{{ route('change.password')  }}"><img src="{{ asset('backend/assets/images/lazy.svg') }}" data-src="{{ asset('backend/assets/images/icon/key.svg') }}" alt="" class="lazy-img"><span class="ms-2 ps-1">Change Password</span></a>
 									</li>
-									<li>
-										<a class="dropdown-item d-flex align-items-center" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"><img src="{{ asset('backend/assets/images/lazy.svg') }}" data-src="{{ asset('backend/assets/images/icon/icon_25.svg') }}" alt="" class="lazy-img"><span class="ms-2 ps-1">Delete Account</span></a>
-									</li>
+									
 								</ul>
 							</div>
 						</div>

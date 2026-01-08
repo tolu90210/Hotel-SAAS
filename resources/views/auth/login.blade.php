@@ -31,6 +31,8 @@
 	<!-- responsive style sheet -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/responsive.css') }}" media="all">
 
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
 	<!-- Fix Internet Explorer ______________________________________-->
 	<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -59,7 +61,7 @@
 							<div class="tab-content mt-100">
 								<div class="tab-pane show active" role="tabpanel" id="fc1">
 									<div class="text-center mb-20">
-										<h2>Welcome Back!</h2>
+										<h2>Sign In</h2>
 										{{-- <p class="fs-20 color-dark">Still don't have an account? <a href="#">Sign up</a></p> --}}
 									</div>
 									<form method="POST" action="{{ route('login') }}">
@@ -68,16 +70,21 @@
 											<div class="col-12">
 												<div class="input-group-meta position-relative mb-25">
 													<label>Email*</label>
-													<input type="email" id="email" placeholder="Youremail@gmail.com" name="email" required>
-                                                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+													<input class="form-control @error('email') is-invalid @enderror" type="email" id="email" placeholder="Youremail@gmail.com" name="email" required>
+                                                    @error('email')
+														<span class="text-danger">{{ $message }}</span>
+                                					@enderror
 												</div>
 											</div>
 											<div class="col-12">
 												<div class="input-group-meta position-relative mb-20">
 													<label>Password*</label>
-													<input type="password" id="password" name="password" placeholder="Enter Password" class="pass_log_id" required>
+													<input type="password" id="password" name="password" placeholder="Enter Password" class="pass_log_id @error('password') is-invalid @enderror" required>
 													<span class="placeholder_icon"><span class="passVicon"><img src="{{ asset('backend/assets/images/icon/icon_68.svg') }}" alt=""></span></span>
-                                                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                             	
+													@error('password')
+                                        				<span class="text-danger">{{ $message }}</span>
+                                    				@enderror
 												</div>
 											</div>
 											<div class="col-12">
@@ -134,6 +141,31 @@
 
 		<!-- Theme js -->
 		<script src="{{ asset('backend/assets/js/theme.js') }}"></script>
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script>
+        @if(Session::has('message'))
+        var type = "{{ Session::get('alert-type','info') }}"
+        switch(type){
+            case 'info':
+                toastr.info(" {{ Session::get('message') }} ");
+            break;
+            
+            case 'success':
+                toastr.success(" {{ Session::get('message') }} ");
+            break;
+            
+            case 'warning':
+                toastr.warning(" {{ Session::get('message') }} ");
+            break;
+            
+            case 'error':
+                toastr.error(" {{ Session::get('message') }} ");
+                break; 
+        }
+        @endif 
+        </script>
+
 	</div> <!-- /.main-page-wrapper -->
 </body>
 

@@ -21,7 +21,7 @@
 	<meta name="msapplication-navbutton-color" content="#0D1A1C">
 	<!-- iOS Safari -->
 	<meta name="apple-mobile-web-app-status-bar-style" content="#0D1A1C">
-	<title>Homy Hotel Management Login</title>
+	<title>Homy Management Login</title>
 	<!-- Favicon -->
 	<link rel="icon" type="image/png" sizes="56x56" href="{{ asset('backend/assets/images/fav-icon/icon.png') }}">
 	<!-- Bootstrap CSS -->

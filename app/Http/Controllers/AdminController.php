@@ -41,30 +41,12 @@ class AdminController extends Controller
         return view('admin.admin_login');
     }
 
-    // public function AdminDestroy(Request $request): RedirectResponse
-    // {
-    //     Auth::guard('web')->logout();
-
-    //     $request->session()->invalidate();
-
-    //     $request->session()->regenerateToken();
-
-    //     $notification = array(
-    //         'message' => 'Come back soon',
-    //         'alert-type' => 'success',
-    //     );
-
-    //     return redirect('/login')->with($notification);
-    // }
-
-
-
     public function AdminProfile(){
 
         $id = Auth::user()->id;
-        $adminData = User::find($id);
+        $adminProfileData = User::find($id);
 
-        return view('admin.admin_profile_view', compact('adminData'));
+        return view('admin.admin_profile_view', compact('adminProfileData'));
     }
 
     public function AdminProfileStore(Request $request){
@@ -74,6 +56,7 @@ class AdminController extends Controller
         $data->name = $request->name;
         $data->email = $request->email;
         $data->phone = $request->phone;
+        $data->address = $request->address;
 
         if ($request->file('photo')) {
             $file = $request->file('photo');
@@ -93,12 +76,12 @@ class AdminController extends Controller
         return redirect()->back()->with($notification);
     }
 
-    public function ChangePassword(){
-
+    public function AdminChangePassword(){
+        
         return view('admin.admin_change_password');
     }
 
-    public function UpdatePassword(Request $request){
+    public function AdminUpdatePassword(Request $request){
 
         //Validation
         $request->validate([

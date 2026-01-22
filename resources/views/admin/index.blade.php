@@ -10,7 +10,7 @@
 						<div class="col-lg-3 col-6">
 							<div class="dash-card-one bg-white border-30 position-relative mb-15 skew-none">
 								<div class="d-sm-flex align-items-center justify-content-between">
-									<div class="icon rounded-circle d-flex align-items-center justify-content-center order-sm-1"><img src="{{ asset('../assets/images/lazy.svg') }}" data-src="{{ asset('../assets/images/icon/icon_12.svg') }}" alt="" class="lazy-img"></div>
+									<div class="icon rounded-circle d-flex align-items-center justify-content-center order-sm-1"><img src="{{ asset('backend/assets/images/lazy.svg') }}" data-src="{{ asset('backend/assets/images/icon/icon_12.svg') }}" alt="" class="lazy-img"></div>
 									<div class="order-sm-0">
 										<span>All Properties</span>
 										<div class="value fw-500">1.7k+</div>
@@ -22,7 +22,7 @@
 						<div class="col-lg-3 col-6">
 							<div class="dash-card-one bg-white border-30 position-relative mb-15">
 								<div class="d-sm-flex align-items-center justify-content-between">
-									<div class="icon rounded-circle d-flex align-items-center justify-content-center order-sm-1"><img src="{{ asset('../assets/images/lazy.svg') }}" data-src="{{ asset('../assets/images/icon/icon_13.svg') }}" alt="" class="lazy-img"></div>
+									<div class="icon rounded-circle d-flex align-items-center justify-content-center order-sm-1"><img src="{{ asset('backend/assets/images/lazy.svg') }}" data-src="{{ asset('backend/assets/images/icon/icon_13.svg') }}" alt="" class="lazy-img"></div>
 									<div class="order-sm-0">
 										<span>Total Pending</span>
 										<div class="value fw-500">03</div>
@@ -34,7 +34,7 @@
 						<div class="col-lg-3 col-6">
 							<div class="dash-card-one bg-white border-30 position-relative mb-15">
 								<div class="d-sm-flex align-items-center justify-content-between">
-									<div class="icon rounded-circle d-flex align-items-center justify-content-center order-sm-1"><img src="{{ asset('../assets/images/lazy.svg') }}" data-src="{{ asset('../assets/images/icon/icon_14.svg') }}" alt="" class="lazy-img"></div>
+									<div class="icon rounded-circle d-flex align-items-center justify-content-center order-sm-1"><img src="{{ asset('backend/assets/images/lazy.svg') }}" data-src="{{ asset('backend/assets/images/icon/icon_14.svg') }}" alt="" class="lazy-img"></div>
 									<div class="order-sm-0">
 										<span>Total Views</span>
 										<div class="value fw-500">4.8k</div>
@@ -46,7 +46,7 @@
 						<div class="col-lg-3 col-6">
 							<div class="dash-card-one bg-white border-30 position-relative mb-15">
 								<div class="d-sm-flex align-items-center justify-content-between">
-									<div class="icon rounded-circle d-flex align-items-center justify-content-center order-sm-1"><img src="{{ asset('../assets/images/lazy.svg') }}" data-src="{{ asset('../assets/images/icon/icon_15.svg') }}" alt="" class="lazy-img"></div>
+									<div class="icon rounded-circle d-flex align-items-center justify-content-center order-sm-1"><img src="{{ asset('backend/assets/images/lazy.svg') }}" data-src="{{ asset('backend/assets/images/icon/icon_15.svg') }}" alt="" class="lazy-img"></div>
 									<div class="order-sm-0">
 										<span>Total Favourites</span>
 										<div class="value fw-500">07</div>
@@ -95,7 +95,7 @@
 												<div class="mail-text">Hello, This is Jenny from google. We’r the largest online platform offer...</div>
 												<div class="attached-file-preview d-flex align-items-center mt-15">
 													<div class="file d-flex align-items-center me-2">
-														<img src="{{ asset('../assets/images/lazy.svg') }}" data-src="{{ asset('../assets/images/icon/icon_28.svg') }}" alt="" class="lazy-img me-2">
+														<img src="{{ asset('backend/assets/images/lazy.svg') }}" data-src="{{ asset('backend/assets/images/icon/icon_28.svg') }}" alt="" class="lazy-img me-2">
 														<span>details.pdf</span>
 													</div>
 												</div>

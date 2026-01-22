@@ -1,14 +1,10 @@
-@extends('admin_dashboard')
+@extends('admin.admin_dashboard')
 @section('admin')
-
-
-
-
 
 
 <div>
     {{-- <h2 class="main-title d-block d-lg-none">Profile</h2> --}}
-            <form method="post" action="{{ route('update.password') }}">
+            <form method="post" action="{{ route('admin.update.password') }}">
                 @csrf
 
 				<div class="bg-white card-box border-20">

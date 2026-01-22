@@ -1,4 +1,4 @@
-@extends('admin_dashboard')
+@extends('admin.admin_dashboard')
 @section('admin')
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -14,7 +14,7 @@
 				<div class="bg-white card-box border-20">
                     <h4 class="dash-title-three">Personal Info</h4>
                     <div class="user-avatar-setting d-flex align-items-center mb-30">
-                        <img id="showImage" src="{{ (!empty($adminData->photo)) ? url('upload/admin_image/'.$adminData->photo) : url('upload/no_image.jpg') }}" data-src="{{ (!empty($adminData->photo)) ? url('upload/admin_image/'.$adminData->photo) : url('upload/no_image.jpg') }}" alt="" class="lazy-img user-img">
+                        <img id="showImage" src="{{ (!empty($adminProfileData->photo)) ? url('upload/admin_image/'.$adminProfileData->photo) : url('upload/no_image.jpg') }}" data-src="{{ (!empty($adminProfileData->photo)) ? url('upload/admin_image/'.$adminProfileData->photo) : url('upload/no_image.jpg') }}" alt="" class="lazy-img user-img">
 
                         <div class="upload-btn position-relative tran3s ms-4 me-3">
                             Upload new photo
@@ -27,7 +27,7 @@
 						<div class="col-sm-6">
 							<div class="dash-input-wrapper mb-30">
 								<label for="">Name*</label>
-								<input type="text" value="{{ $adminData->name }}" name="name" id="name" required>
+								<input type="text" value="{{ $adminProfileData->name }}" name="name" id="name" required>
 							</div>
 							<!-- /.dash-input-wrapper -->
 						</div>
@@ -35,7 +35,7 @@
 						<div class="col-sm-6">
 							<div class="dash-input-wrapper mb-30">
 								<label for="">Email*</label>
-								<input type="email" value="{{ $adminData->email }}" name="email" id="email" required>
+								<input type="email" value="{{ $adminProfileData->email }}" name="email" id="email" required>
 							</div>
 							<!-- /.dash-input-wrapper -->
 						</div>
@@ -43,7 +43,15 @@
 						<div class="col-sm-6">
 							<div class="dash-input-wrapper mb-30">
 								<label for="">Phone Number*</label>
-								<input type="tel" value="{{ $adminData->phone }}" name="phone" id="phone" required>
+								<input type="tel" value="{{ $adminProfileData->phone }}" name="phone" id="phone" required>
+							</div>
+							<!-- /.dash-input-wrapper -->
+						</div>
+
+						<div class="col-sm-6">
+							<div class="dash-input-wrapper mb-30">
+								<label for="">Address*</label>
+								<input type="text" value="{{ $adminProfileData->address }}" name="address" id="address" required>
 							</div>
 							<!-- /.dash-input-wrapper -->
 						</div>
@@ -55,7 +63,7 @@
 				<!-- /.card-box -->
 
 				<div class="button-group d-inline-flex align-items-center mt-30">
-					<button type="submit" class="dash-btn-two tran3s me-3">Save</button>
+					<button type="submit" class="dash-btn-two tran3s me-3">Update Profile Details</button>
 				</div>
             </form>
 </div>

@@ -9,7 +9,7 @@
     <meta property="og:url" content="https://creativegigstf.com">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Homy-Real Estate Admin Login">
-	<meta name='og:image' content='{{ asset('backend/assets/images/assets/ogg.png') }}'>
+	<meta name='og:image' content='{{ asset('backend_frontend/assets/images/assets/ogg.png') }}'>
 	<!-- For IE -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<!-- For Resposive Device -->
@@ -23,13 +23,13 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="#0D1A1C">
 	<title>Homy Admin Management Login</title>
 	<!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="56x56" href="{{ asset('backend/assets/images/fav-icon/icon.png') }}">
+    <link rel="icon" type="image/png" sizes="56x56" href="{{ asset('backend_frontend/assets/images/fav-icon/icon.png') }}">
 	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/bootstrap.min.css') }}" media="all">
+	<link rel="stylesheet" type="text/css" href="{{ asset('backend_frontend/assets/css/bootstrap.min.css') }}" media="all">
 	<!-- Main style sheet -->
-	<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/style.min.css') }}" media="all">
+	<link rel="stylesheet" type="text/css" href="{{ asset('backend_frontend/assets/css/style.min.css') }}" media="all">
 	<!-- responsive style sheet -->
-	<link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/responsive.css') }}" media="all">
+	<link rel="stylesheet" type="text/css" href="{{ asset('backend_frontend/assets/css/responsive.css') }}" media="all">
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
@@ -48,7 +48,7 @@
 		==================================================== -->
 		<div id="preloader">
 			<div id="ctn-preloader" class="ctn-preloader">
-				<div class="icon"><img src="{{ asset('backend/assets/images/loader.gif') }}" alt="" class="m-auto d-block" width="64"></div>
+				<div class="icon"><img src="{{ asset('backend_frontend/assets/images/loader.gif') }}" alt="" class="m-auto d-block" width="64"></div>
 			</div>
 		</div>
 
@@ -80,7 +80,7 @@
 												<div class="input-group-meta position-relative mb-20">
 													<label>Password*</label>
 													<input type="password" id="password" name="password" placeholder="Enter Password" class="pass_log_id @error('password') is-invalid @enderror" required>
-													<span class="placeholder_icon"><span class="passVicon"><img src="{{ asset('backend/assets/images/icon/icon_68.svg') }}" alt=""></span></span>
+													<span class="placeholder_icon"><span class="passVicon"><img src="{{ asset('backend_frontend/assets/images/icon/icon_68.svg') }}" alt=""></span></span>
                                              	
 													@error('password')
                                         				<span class="text-danger">{{ $message }}</span>
@@ -120,27 +120,27 @@
 
 		<!-- jQuery first, then Bootstrap JS -->
 		<!-- jQuery -->
-		<script src="{{ asset('backend/assets/vendor/jquery.min.js') }}"></script>
+		<script src="{{ asset('backend_frontend/assets/vendor/jquery.min.js') }}"></script>
 		<!-- Bootstrap JS -->
-		<script src="{{ asset('backend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+		<script src="{{ asset('backend_frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 		<!-- WOW js -->
-		<script src="{{ asset('backend/assets/vendor/wow/wow.min.js') }}"></script>
+		<script src="{{ asset('backend_frontend/assets/vendor/wow/wow.min.js') }}"></script>
 		<!-- Slick Slider -->
-		<script src="{{ asset('backend/assets/vendor/slick/slick.min.js') }}"></script>
+		<script src="{{ asset('backend_frontend/assets/vendor/slick/slick.min.js') }}"></script>
 		<!-- Fancybox -->
-		<script src="{{ asset('backend/assets/vendor/fancybox/fancybox.umd.js') }}"></script>
+		<script src="{{ asset('backend_frontend/assets/vendor/fancybox/fancybox.umd.js') }}"></script>
 		<!-- Lazy -->
-		<script src="{{ asset('backend/assets/vendor/jquery.lazy.min.js') }}"></script>
+		<script src="{{ asset('backend_frontend/assets/vendor/jquery.lazy.min.js') }}"></script>
 		<!-- js Counter -->
-		<script src="{{ asset('backend/assets/vendor/jquery.counterup.min.js') }}"></script>
-		<script src="{{ asset('backend/assets/vendor/jquery.waypoints.min.js') }}"></script>
+		<script src="{{ asset('backend_frontend/assets/vendor/jquery.counterup.min.js') }}"></script>
+		<script src="{{ asset('backend_frontend/assets/vendor/jquery.waypoints.min.js') }}"></script>
 		<!-- Nice Select -->
-		<script src="{{ asset('backend/assets/vendor/nice-select/jquery.nice-select.min.js') }}"></script>
+		<script src="{{ asset('backend_frontend/assets/vendor/nice-select/jquery.nice-select.min.js') }}"></script>
 		<!-- validator js -->
-		<script src="{{ asset('backend/assets/vendor/validator.js') }}"></script>
+		<script src="{{ asset('backend_frontend/assets/vendor/validator.js') }}"></script>
 
 		<!-- Theme js -->
-		<script src="{{ asset('backend/assets/js/theme.js') }}"></script>
+		<script src="{{ asset('backend_frontend/assets/js/theme.js') }}"></script>
 
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         <script>

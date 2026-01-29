@@ -8,7 +8,7 @@
 				</div>
 				<nav class="dasboard-main-nav pt-30 pb-30 bottom-line">
 					<ul class="style-none">
-						<li class="plr"><a href="{{ route('admin.dashboard') }}" class="d-flex w-100 align-items-center active">
+						<li class="plr"><a href="{{ route('dashboard') }}" class="d-flex w-100 align-items-center active">
 							<img src="{{ asset('backend_frontend/assets/images/icon/icon_1_active.svg') }}" alt="">
 							<span>Dashboard</span>
 						</a></li>
@@ -65,7 +65,7 @@
 				<!-- /.profile-complete-status -->
 
 				<div class="plr">
-					<a href="{{ route('admin.logout') }}" class="d-flex w-100 align-items-center logout-btn">
+					<a href="{{ route('user.logout') }}" class="d-flex w-100 align-items-center logout-btn">
 						<div class="icon tran3s d-flex align-items-center justify-content-center rounded-circle"><img src="{{ asset('backend_frontend/assets/images/icon/icon_41.svg') }}" alt=""></div>
 						<span>Logout</span>
 					</a>

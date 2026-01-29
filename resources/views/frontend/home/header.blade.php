@@ -14,12 +14,24 @@
 						<!-- logo -->
 						<div class="right-widget ms-auto ms-lg-0 me-3 me-lg-0 order-lg-3">
 							<ul class="d-flex align-items-center style-none">
+
+
+								@auth
+								<li>
+									<a href="{{ route('dashboard') }}" class="btn-one" target="_blank"><i class="fa-regular fa-dashboard"></i> <span>Dashboard</span></a>
+                                </li>
+
+								<li class="d-none d-md-inline-block ms-3">
+                                    <a href="{{ route('user.logout') }}" class="btn-two"><span>Logout</span> <i class="fa-regular fa-lock"></i></a>
+                                </li>
+								@else
 								<li>
 									<a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" class="btn-one"><i class="fa-regular fa-lock"></i> <span>Login</span></a>
                                 </li>
 								<li class="d-none d-md-inline-block ms-3">
                                     <a href="dashboard/add-property.html" class="btn-two" target="_blank"><span>Add Listing</span> <i class="fa-thin fa-arrow-up-right"></i></a>
                                 </li>
+								@endauth
 							</ul>
 						</div>
 						<nav class="navbar navbar-expand-lg p0 order-lg-2">

@@ -1,0 +1,69 @@
+<header class="dashboard-header">
+					<div class="d-flex align-items-center justify-content-end">
+						<h4 class="m0 d-none d-lg-block">User Dashboard</h4>
+						<button class="dash-mobile-nav-toggler d-block d-md-none me-auto">
+							<span></span>
+						</button>
+						<form action="#" class="search-form ms-auto">
+							
+						</form>
+						<div class="profile-notification position-relative dropdown-center ms-3 ms-md-5 me-4">
+							<button class="noti-btn dropdown-toggle" type="button" id="notification-dropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+								<img src="{{ asset('backend_frontend/assets/images/lazy.svg') }}" data-src="{{ asset('backend_frontend/assets/images/icon/icon_11.svg') }}" alt="" class="lazy-img">
+								<div class="badge-pill"></div>
+							</button>
+							<ul class="dropdown-menu" aria-labelledby="notification-dropdown">
+								<li>
+									<h4>Notification</h4>
+									<ul class="style-none notify-list">
+										<li class="d-flex align-items-center unread">
+											<img src="{{ asset('backend_frontend/assets/images/lazy.svg') }}" data-src="{{ asset('backend_frontend/assets/images/icon/icon_36.svg') }}" alt="" class="lazy-img icon">
+											<div class="flex-fill ps-2">
+												<h6>You have 3 new mails</h6>
+												<span class="time">3 hours ago</span>
+											</div>
+										</li>
+										<li class="d-flex align-items-center">
+											<img src="{{ asset('backend_frontend/assets/images/lazy.svg') }}" data-src="{{ asset('backend_frontend/assets/images/icon/icon_37.svg') }}" alt="" class="lazy-img icon">
+											<div class="flex-fill ps-2">
+												<h6>Your listing post has been approved</h6>
+												<span class="time">1 day ago</span>
+											</div>
+										</li>
+										<li class="d-flex align-items-center unread">
+											<img src="{{ asset('backend_frontend/assets/images/lazy.svg') }}" data-src="{{ asset('backend_frontend/assets/images/icon/icon_38.svg') }}" alt="" class="lazy-img icon">
+											<div class="flex-fill ps-2">
+												<h6>Your meeting is cancelled</h6>
+												<span class="time">3 days ago</span>
+											</div>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+
+                        @php
+                            $id = Auth::user()->id;
+                            $userData = App\Models\User::find($id);
+                        @endphp
+						
+						<div class="user-data position-relative">
+							<button class="user-avatar online position-relative rounded-circle dropdown-toggle" type="button" id="profile-dropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+								<img src="{{ (!empty($userData->photo)) ? url('upload/user_image/'.$userData->photo) : url('upload/no_image.jpg') }}" alt="" class="lazy-img">
+							</button>
+							<!-- /.user-avatar -->
+							<div class="user-name-data">
+								<ul class="dropdown-menu" aria-labelledby="profile-dropdown">
+									<li>
+										<a class="dropdown-item d-flex align-items-center" href="{{ route('user.profile') }}"><img src="{{ asset('backend_frontend/assets/images/lazy.svg') }}" data-src="{{ asset('backend_frontend/assets/images/icon/icon_23.svg') }}" alt="" class="lazy-img"><span class="ms-2 ps-1">Profile</span></a>
+									</li>
+									<li>
+										<a class="dropdown-item d-flex align-items-center" href="{{ route('user.change.password') }}"><img src="{{ asset('backend_frontend/assets/images/lazy.svg') }}" data-src="{{ asset('backend_frontend/assets/images/icon/icon_24.svg') }}" alt="" class="lazy-img"><span class="ms-2 ps-1">Change Password</span></a>
+									</li>
+									
+								</ul>
+							</div>
+						</div>
+						<!-- /.user-data -->
+					</div>
+				</header>

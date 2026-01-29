@@ -80,32 +80,48 @@
 						<div class="form-wrapper m-auto">
 							<ul class="nav nav-tabs w-100" role="tablist">
 								<li class="nav-item" role="presentation">
-									<button class="nav-link active" data-bs-toggle="tab" data-bs-target="#fc1" role="tab">User</button>
+									<button class="nav-link active" data-bs-toggle="tab" data-bs-target="#fc1" role="tab">Login</button>
 								</li>
 								<li class="nav-item" role="presentation">
-									<button class="nav-link" data-bs-toggle="tab" data-bs-target="#fc2" role="tab">Agent</button>
+									<button class="nav-link" data-bs-toggle="tab" data-bs-target="#fc2" role="tab">Register</button>
 								</li>
 							</ul>
 							<div class="tab-content mt-30">
 								<div class="tab-pane show active" role="tabpanel" id="fc1">
 									<div class="text-center mb-20">
 										<h2>Welcome Back!</h2>
-										<p class="fs-20 color-dark">Still don't have an account? <a href="#">Sign up</a></p>
+										{{-- <p class="fs-20 color-dark">Still don't have an account? <a href="#">Sign up</a></p> --}}
 									</div>
+
+									{{-- @if ($errors->any())
+									<div class="alert alert-danger">
+										@foreach ($errors->all() as $error)
+										<p class="mb-0">{{ $error }}</p>
+										@endforeach
+									</div>
+									@endif --}}
+
+
 									<form method="POST" action="{{ route('login') }}">
 										@csrf
 										<div class="row">
 											<div class="col-12">
 												<div class="input-group-meta position-relative mb-25">
 													<label>Email*</label>
-													<input type="email" placeholder="Youremail@gmail.com" name="email" required autofocus>
+													<input type="email" id="email" placeholder="Youremail@gmail.com" name="email" required autofocus>
+													@error('email')
+														<span class="text-danger">{{ $message }}</span>
+                                					@enderror
 												</div>
 											</div>
 											<div class="col-12">
 												<div class="input-group-meta position-relative mb-20">
 													<label>Password*</label>
-													<input type="password" placeholder="Enter Password" class="pass_log_id" name="password" required autocomplete="current-password">
+													<input type="password" id="password" placeholder="Enter Password" class="pass_log_id" name="password" required autocomplete="current-password">
 													<span class="placeholder_icon"><span class="passVicon"><img src="{{ asset('backend_frontend/assets/images/icon/icon_68.svg') }}" alt=""></span></span>
+													@error('password')
+                                        				<span class="text-danger">{{ $message }}</span>
+                                    				@enderror
 												</div>
 											</div>
 											<div class="col-12">
@@ -118,7 +134,7 @@
 												</div> <!-- /.agreement-checkbox -->
 											</div>
 											<div class="col-12">
-												<button class="btn-two w-100 text-uppercase d-block mt-20">Login</button>
+												<button type="submit" class="btn-two w-100 text-uppercase d-block mt-20">Login</button>
 											</div>
 										</div>
 									</form>
@@ -126,35 +142,48 @@
 								<!-- /.tab-pane -->
 								<div class="tab-pane" role="tabpanel" id="fc2">
 									<div class="text-center mb-20">
-										<h2>Welcome Back!</h2>
-										<p class="fs-20 color-dark">Want to become an Agent? <a href="#">Sign up</a></p>
+										<h2>Register</h2>
+										{{-- <p class="fs-20 color-dark">Already have an account? <a href="#">Login</a></p> --}}
 									</div>
-									<form action="#">
+									<form method="POST" action="{{ route('register') }}">
+										@csrf
 										<div class="row">
 											<div class="col-12">
 												<div class="input-group-meta position-relative mb-25">
+													<label>Name*</label>
+													<input type="text" placeholder="John Doe" name="name" required autofocus autocomplete="name">
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="input-group-meta position-relative mb-25">
 													<label>Email*</label>
-													<input type="email" placeholder="Youremail@gmail.com">
+													<input type="email" placeholder="johndoe@gmail.com" name="email" required autofocus autocomplete="email">
 												</div>
 											</div>
 											<div class="col-12">
 												<div class="input-group-meta position-relative mb-20">
 													<label>Password*</label>
-													<input type="password" placeholder="Enter Password" class="pass_log_id">
+													<input type="password" placeholder="Enter Password" name="password" class="pass_log_id" required autocomplete="new-password">
+													<span class="placeholder_icon"><span class="passVicon"><img src="{{ asset('backend_frontend/assets/images/icon/icon_68.svg') }}" alt=""></span></span>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="input-group-meta position-relative mb-20">
+													<label>Confirm Password*</label>
+													<input type="password" placeholder="Confirm Password" class="pass_log_id" name="password_confirmation" required autocomplete="new-password">
 													<span class="placeholder_icon"><span class="passVicon"><img src="{{ asset('backend_frontend/assets/images/icon/icon_68.svg') }}" alt=""></span></span>
 												</div>
 											</div>
 											<div class="col-12">
 												<div class="agreement-checkbox d-flex justify-content-between align-items-center">
 													<div>
-														<input type="checkbox" id="remember">
-														<label for="remember">Keep me logged in</label>
+														<input type="checkbox" id="remember2" required>
+														<label for="remember2">By hitting the "Register" button, you agree to the <a href="#">Terms conditions</a> & <a href="#">Privacy Policy</a></label>
 													</div>
-													<a href="#">Forget Password?</a>
 												</div> <!-- /.agreement-checkbox -->
 											</div>
 											<div class="col-12">
-												<button class="btn-two w-100 text-uppercase d-block mt-20">Login</button>
+												<button type="submit" class="btn-two w-100 text-uppercase d-block mt-20">Sign Up</button>
 											</div>
 										</div>
 									</form>
@@ -224,6 +253,18 @@
 		<!-- Theme js -->
 		<script src="{{ asset('backend_frontend/assets/js/theme.js') }}"></script>
 	</div> <!-- /.main-page-wrapper -->
+
+	@if ($errors->any())
+	<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+		loginModal.show();
+	});
+	</script>
+	@endif
+
+
+
 </body>
 
 </html>

@@ -17,9 +17,14 @@ class RegisteredUserController extends Controller
     /**
      * Display the registration view.
      */
-    public function create(): View
+    // public function create(): View
+    // {
+    //     return view('auth.register');
+    // }
+
+    public function create(): RedirectResponse
     {
-        return view('auth.register');
+        return redirect('/');
     }
 
     /**
@@ -27,6 +32,7 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
+
     public function store(Request $request): RedirectResponse
     {
         $request->validate([

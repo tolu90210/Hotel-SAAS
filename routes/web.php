@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Backend\PropertyTypeController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -53,6 +54,15 @@ Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.
 
 
 
+// Admin Prootected Routes
+Route::middleware(['auth','roles:admin'])->group(function(){
+    
+    Route::controller(PropertyTypeController::class)->group(function(){
+        Route::get('/all/type', 'AllType')->name('all.type');
+        Route::get('/add/type', 'AddType')->name('add.type');
+    });
+
+});
 
 
 require __DIR__.'/auth.php';

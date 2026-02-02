@@ -26,8 +26,8 @@
                                     <td>{{ $item->type_icon }}</td>
                                     <td>
 										<div class="d-flex justify-content-end btns-group">
-											<a href="#"><i class="fa-sharp fa-regular fa-eye" data-bs-toggle="tooltip" title="View"></i></a>
-											<a href="#" data-bs-toggle="tooltip" title="Delete"><i class="fa-regular fa-trash"></i></a>
+											<a href="{{ route('edit.type', $item->id) }}"><i class="fa-sharp fa-regular fa-eye" data-bs-toggle="tooltip" title="Edit"></i></a>
+											<a href="{{ route('delete.type', $item->id) }}" id="delete" title="Delete"><i class="fa-regular fa-trash"></i></a>
 										</div>
 									</td>
                                 </tr>

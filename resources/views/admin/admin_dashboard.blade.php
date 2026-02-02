@@ -88,7 +88,7 @@
 
 
         <!-- Modal -->
-        <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+        {{-- <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen modal-dialog-centered">
                 <div class="container">
                     <div class="remove-account-popup text-center modal-content">
@@ -97,7 +97,7 @@
                             data-src="{{ asset('backend_frontend/assets/images/icon/icon_22.svg') }}" alt=""
                             class="lazy-img m-auto">
                         <h2>Are you sure?</h2>
-                        <p>Are you sure to delete your account? All data will be lost.</p>
+                        <p>Are you sure to delete this data? This data will be lost.</p>
                         <div class="button-group d-inline-flex justify-content-center align-items-center pt-15">
                             <a href="#" class="confirm-btn fw-500 tran3s me-3">Yes</a>
                             <button type="button" class="btn-close fw-500 ms-3" data-bs-dismiss="modal"
@@ -107,7 +107,7 @@
                     <!-- /.remove-account-popup -->
                 </div>
             </div>
-        </div>
+        </div> --}}
 
 
 
@@ -209,6 +209,10 @@
                 });
             });
         </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+        <script src="{{ asset('backend_frontend/assets/js/code.js') }}"></script>
 
 
     </div> <!-- /.main-page-wrapper -->

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ProperyType;
+use App\Models\Amenities;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -71,6 +72,65 @@ class PropertyTypeController extends Controller
 
         $notification = array(
             'message' => 'Property Type Deleted Successfully',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
+    public function AllAmenitie(){
+
+        $amenities = Amenities::latest()->get();
+        return view('backend.amenities.all_amenities',compact('amenities'));
+    }
+
+    public function AddAmenitie(){
+
+        return view('backend.amenities.add_amenitie');
+    }
+
+    public function StoreAmenitie(Request $request){
+
+        Amenities::insert([
+            'amenities_name' => $request->amenities_name,
+        ]);
+
+        $notification = array(
+            'message' => 'Amenitie Created Successfully',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->route('all.amenitie')->with($notification);
+    }
+
+    public function EditAmenitie($id){
+
+        $amenitie = Amenities::findOrFail($id);
+        return view('backend.amenities.edit_amenities',compact('amenitie'));
+    }
+
+    public function UpdateAmenitie(Request $request){
+
+        $aid = $request->id;
+
+        Amenities::findOrFail($aid)->update([
+            'amenities_name' => $request->amenities_name,
+        ]);
+
+        $notification = array(
+            'message' => 'Amenitie Updated Successfully',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->route('all.amenitie')->with($notification);
+    }
+
+    public function DeleteAmenitie($id){
+
+        Amenities::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Amenitie Deleted Successfully',
             'alert-type' => 'success',
         );
 

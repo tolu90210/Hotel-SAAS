@@ -214,6 +214,8 @@
 
         <script src="{{ asset('backend_frontend/assets/js/code.js') }}"></script>
 
+        <script src="{{ asset('backend_frontend/assets/js/validate.min.js') }}"></script>
+
 
     </div> <!-- /.main-page-wrapper -->
 </body>

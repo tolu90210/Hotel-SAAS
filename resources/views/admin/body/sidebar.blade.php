@@ -28,7 +28,7 @@
                     <a href="javascript:void(0)" class="d-flex w-100 align-items-center side-toggle"
                         style="padding:10px 15px; font-weight:500; cursor:pointer;">
 
-                        <img src="{{ asset('backend_frontend/assets/images/icon/icon_17.svg') }}" alt="">
+                        <img src="{{ asset('backend_frontend/assets/images/icon/icon_7.svg') }}" alt="">
                         <span style="margin-left:10px;">Property Type</span>
 
                         <span class="side-arrow"
@@ -69,6 +69,35 @@
 
                         <li style="list-style:none;">
                             <a href="{{  route('all.amenitie') }}"
+                                style="display:block; padding:8px 15px 8px 45px; font-size:14px; color:#666; text-decoration:none;">
+                                All Amenities
+                            </a>
+                        </li>
+
+                        <li style="list-style:none;">
+                            <a href="{{ route('add.amenitie') }}"
+                                style="display:block; padding:8px 15px 8px 45px; font-size:14px; color:#666; text-decoration:none;">
+                                Add Amenities
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="plr side-item" style="list-style:none;">
+                    <a href="javascript:void(0)" class="d-flex w-100 align-items-center side-toggle"
+                        style="padding:10px 15px; font-weight:500; cursor:pointer;">
+
+                        <img src="{{ asset('backend_frontend/assets/images/icon/icon_17.svg') }}" alt="">
+                        <span style="margin-left:10px;">Properties</span>
+
+                        <span class="side-arrow"
+                            style="margin-left:auto; width:3px; height:3px; border-right:1px solid #666; border-bottom:1px solid #666; transform:rotate(45deg); transition:0.3s;"></span>
+                    </a>
+
+                    <ul class="side-submenu" style="display:none; padding:0; margin:5px 0 0 0;">
+
+                        <li style="list-style:none;">
+                            <a href="{{  route('all.property') }}"
                                 style="display:block; padding:8px 15px 8px 45px; font-size:14px; color:#666; text-decoration:none;">
                                 All Amenities
                             </a>

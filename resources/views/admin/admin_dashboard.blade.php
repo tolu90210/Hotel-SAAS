@@ -187,8 +187,6 @@
             });
         </script>
 
-        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
 
         <script>
             $(document).ready(function() {
@@ -210,11 +208,42 @@
             });
         </script>
 
+        <script>
+        $(document).ready(function () {
+            $('#propertyTable').DataTable({
+                responsive: true,
+                pageLength: 5,
+                lengthChange: false,
+                ordering: true,
+                searching: false, // you can enable later
+                info: false,      // you already have "Showing 1–5 of 40"
+                columnDefs: [
+                    { orderable: false, targets: [4] } // Disable sorting on Action column
+                ]
+            });
+        });
+        </script>
+
+
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
         <script src="{{ asset('backend_frontend/assets/js/code.js') }}"></script>
 
         <script src="{{ asset('backend_frontend/assets/js/validate.min.js') }}"></script>
+
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+        <!-- DataTables core -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
+        <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+       
+
+        <!-- DataTables Responsive -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+        <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+        
+
 
 
     </div> <!-- /.main-page-wrapper -->

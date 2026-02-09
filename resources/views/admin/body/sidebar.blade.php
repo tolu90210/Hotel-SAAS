@@ -99,14 +99,14 @@
                         <li style="list-style:none;">
                             <a href="{{  route('all.property') }}"
                                 style="display:block; padding:8px 15px 8px 45px; font-size:14px; color:#666; text-decoration:none;">
-                                All Amenities
+                                All Properties
                             </a>
                         </li>
 
                         <li style="list-style:none;">
-                            <a href="{{ route('add.amenitie') }}"
+                            <a href="{{ route('add.property') }}"
                                 style="display:block; padding:8px 15px 8px 45px; font-size:14px; color:#666; text-decoration:none;">
-                                Add Amenities
+                                Add Property
                             </a>
                         </li>
                     </ul>

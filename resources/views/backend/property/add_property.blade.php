@@ -62,7 +62,7 @@
                     <div class="dash-input-wrapper mb-30">
                         <label for="">Multiple Images*</label>
                         <div class="user-avatar-setting d-flex align-items-center mb-30">
-                            
+
                             <div class="row" id="preview_img"></div>
 
                             <div class="upload-btn position-relative tran3s ms-4 me-3">
@@ -108,7 +108,7 @@
                 </div>
 
 
-                
+
 
 
 
@@ -176,9 +176,11 @@
                     <div class="dash-input-wrapper mb-30">
                         <label for="">Latitude*</label>
                         <input type="text" placeholder="Ex: 28.1592" name="latitude">
-                        {{-- <a href="https://www.latlong.net/convert-address-to-lat-long.html" target="_blank">Click here to get latitude from address</a> --}}
+                        {{-- <a href="https://www.latlong.net/convert-address-to-lat-long.html" target="_blank">Click here
+                            to get latitude from address</a> --}}
                         <div class="info-text d-sm-flex align-items-center justify-content-between mt-5">
-                            <p class="m0"><a href="https://www.latlong.net/convert-address-to-lat-long.html" target="_blank">Click here to get latitude from address</a></p>
+                            <p class="m0"><a href="https://www.latlong.net/convert-address-to-lat-long.html"
+                                    target="_blank">Click here to get latitude from address</a></p>
                         </div>
                     </div>
                     <!-- /.dash-input-wrapper -->
@@ -187,246 +189,210 @@
                     <div class="dash-input-wrapper mb-30">
                         <label for="">Longitude*</label>
                         <input type="text" placeholder="Ex: 90.5201" name="longitude">
-                        {{-- <a href="https://www.latlong.net/convert-address-to-lat-long.html" target="_blank">Click here to get longitude from address</a> --}}
+                        {{-- <a href="https://www.latlong.net/convert-address-to-lat-long.html" target="_blank">Click here
+                            to get longitude from address</a> --}}
                         <div class="info-text d-sm-flex align-items-center justify-content-between mt-5">
-                            <p class="m0"><a href="https://www.latlong.net/convert-address-to-lat-long.html" target="_blank">Click here to get longitude from address</a></p>
+                            <p class="m0"><a href="https://www.latlong.net/convert-address-to-lat-long.html"
+                                    target="_blank">Click here to get longitude from address</a></p>
                         </div>
                     </div>
                     <!-- /.dash-input-wrapper -->
                 </div>
-                
 
-                <div class="col-md-4">
+
+                <div class="col-md-6">
                     <div class="dash-input-wrapper mb-30">
                         <label for="">Property Type*</label>
-                        <input type="text" name="property_size" placeholder="Ex: 1,230 sqft">
+                        <select class="nice-select" name="ptype_id">
+                            <option selected="" disabled="">Select Type</option>
+                            @foreach ($propertytype as $ptype)
+                                <option value="{{ $ptype->id }}">{{ $ptype->type_name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <!-- /.dash-input-wrapper -->
                 </div>
 
-                <div class="col-md-4">
-                    <div class="dash-input-wrapper mb-30">
-                        <label for="">Property Amenities*</label>
-                        <input type="text" name="property_video" placeholder="https::www.youtube.com">
-                    </div>
-                    <!-- /.dash-input-wrapper -->
-                </div>
 
-                <div class="col-md-4">
+
+                <div class="col-md-6">
                     <div class="dash-input-wrapper mb-30">
                         <label for="">Agent*</label>
-                        <input type="text" name="neighborhood" placeholder="Ex: Anchor">
+                        <select class="nice-select" name="agent_id">
+                            <option selected="" disabled="">Select Agent</option>
+                            @foreach ($activeAgent as $agent)
+                                <option value="{{ $agent->id }}">{{ $agent->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <!-- /.dash-input-wrapper -->
                 </div>
 
 
+                <div class="dash-input-wrapper mb-30">
+                    <label for="">Short Description*</label>
+                    <textarea class="size-md" placeholder="Write a short description about property..."></textarea>
+                </div>
+                <!-- /.dash-input-wrapper -->
 
+                <div class="dash-input-wrapper mb-30">
+                    <label for="">Long Description*</label>
+                    <textarea class="size-lg" placeholder="Write a long description about property..."></textarea>
+                </div>
+                <!-- /.dash-input-wrapper -->
+
+                <hr>
 
             </div>
         </div>
         <!-- /.card-box -->
 
-        <div class="bg-white card-box border-20 mt-40">
-            <h4 class="dash-title-three">Photo & Video Attachment</h4>
-            <div class="dash-input-wrapper mb-20">
-                <label for="">File Attachment*</label>
-
-                <div class="attached-file d-flex align-items-center justify-content-between mb-15">
-                    <span>PorpertyImage_01.jpg</span>
-                    <a href="#" class="remove-btn"><i class="bi bi-x"></i></a>
-                </div>
-                <div class="attached-file d-flex align-items-center justify-content-between mb-15">
-                    <span>PorpertyImage_02.jpg</span>
-                    <a href="#" class="remove-btn"><i class="bi bi-x"></i></a>
-                </div>
-            </div>
-            <!-- /.dash-input-wrapper -->
-            <div class="dash-btn-one d-inline-block position-relative me-3">
-                <i class="bi bi-plus"></i>
-                Upload File
-                <input type="file" id="uploadCV" name="uploadCV" placeholder="">
-            </div>
-            <small>Upload file .jpg, .png, .mp4</small>
-        </div>
-        <!-- /.card-box -->
 
         <div class="bg-white card-box border-20 mt-40">
             <h4 class="dash-title-three m0 pb-5">Select Amenities</h4>
             <ul class="style-none d-flex flex-wrap filter-input">
-                <li>
-                    <input type="checkbox" name="Amenities" value="01">
-                    <label>A/C & Heating</label>
-                </li>
-                <li>
-                    <input type="checkbox" name="Amenities" value="02" placeholder="">
-                    <label>Garages</label>
-                </li>
-                <li>
-                    <input type="checkbox" name="Amenities" value="03">
-                    <label>Swimming Pool</label>
-                </li>
-                <li>
-                    <input type="checkbox" name="Amenities" value="04">
-                    <label>Parking</label>
-                </li>
-                <li>
-                    <input type="checkbox" name="Amenities" value="05">
-                    <label>Lake View</label>
-                </li>
-                <li>
-                    <input type="checkbox" name="Amenities" value="06">
-                    <label>Garden</label>
-                </li>
-                <li>
-                    <input type="checkbox" name="Amenities" value="07">
-                    <label>Disabled Access</label>
-                </li>
-                <li>
-                    <input type="checkbox" name="Amenities" value="08">
-                    <label>Pet Friendly</label>
-                </li>
-                <li>
-                    <input type="checkbox" name="Amenities" value="09">
-                    <label>Ceiling Height</label>
-                </li>
-                <li>
-                    <input type="checkbox" name="Amenities" value="10">
-                    <label>Outdoor Shower</label>
-                </li>
-                <li>
-                    <input type="checkbox" name="Amenities" value="11">
-                    <label>Refrigerator</label>
-                </li>
-                <li>
-                    <input type="checkbox" name="Amenities" value="12">
-                    <label>Fireplace</label>
-                </li>
-                <li>
-                    <input type="checkbox" name="Amenities" value="13">
-                    <label>Wifi</label>
-                </li>
-                <li>
-                    <input type="checkbox" name="Amenities" value="14">
-                    <label>TV Cable</label>
-                </li>
-                <li>
-                    <input type="checkbox" name="Amenities" value="15">
-                    <label>Barbeque</label>
-                </li>
-                <li>
-                    <input type="checkbox" name="Amenities" value="16">
-                    <label>Laundry</label>
-                </li>
-                <li>
-                    <input type="checkbox" name="Amenities" value="17">
-                    <label>Dryer</label>
-                </li>
-                <li>
-                    <input type="checkbox" name="Amenities" value="18">
-                    <label>Lawn</label>
-                </li>
-                <li>
-                    <input type="checkbox" name="Amenities" value="19">
-                    <label>Elevator</label>
-                </li>
+                @foreach ($amenities as $amen)
+                    <li>
+                        <input type="checkbox" name="amenities_id[]" value="{{ $amen->id }}" id="amenity_{{ $amen->id }}">
+                        <label for="amenity_{{ $amen->id }}">{{ $amen->amenities_name }}</label>
+                    </li>
+                @endforeach
             </ul>
         </div>
         <!-- /.card-box -->
 
+
         <div class="bg-white card-box border-20 mt-40">
-            <h4 class="dash-title-three">Address & Location</h4>
-            <div class="row">
-                <div class="col-12">
-                    <div class="dash-input-wrapper mb-25">
-                        <label for="">Address*</label>
-                        <input type="text" placeholder="145/A, Ranchview">
-                    </div>
-                    <!-- /.dash-input-wrapper -->
-                </div>
-                <div class="col-lg-4">
-                    <div class="dash-input-wrapper mb-25">
-                        <label for="">Country*</label>
-                        <select class="nice-select">
-                            <option value="0">Select Country</option>
-                            <option>Afghanistan</option>
-                            <option>Albania</option>
-                            <option>Algeria</option>
-                            <option>Andorra</option>
-                            <option>Angola</option>
-                            <option>Antigua and Barbuda</option>
-                            <option>Argentina</option>
-                            <option>Armenia</option>
-                            <option>Australia</option>
-                            <option>Austria</option>
-                            <option>Azerbaijan</option>
-                            <option>Bahamas</option>
-                            <option>Bahrain</option>
-                            <option>Bangladesh</option>
-                            <option>Barbados</option>
-                            <option>Belarus</option>
-                            <option>Belgium</option>
-                            <option>Belize</option>
-                            <option>Benin</option>
-                            <option>Bhutan</option>
+            <h4 class="dash-title-three m0 pb-5">Select Tag/Badge</h4>
+            <ul class="style-none d-flex flex-wrap filter-input">
+                <li>
+                    <input type="checkbox" name="featured" value="1" id="checkInline1">
+                    <label for="checkInline1">Featured Property</label>
+                </li>
+
+                <li>
+                    <input type="checkbox" name="hot" value="1" id="checkInline2">
+                    <label for="checkInline2">Hot Property</label>
+                </li>
+            </ul>
+
+        </div>
+        <!-- /.card-box -->
+
+
+        <div class="bg-white card-box border-20 mt-40">
+            <h4 class="dash-title-three">Select Facility</h4>
+            <div class="row align-items-end add_item">
+
+
+                <div class="col-md-4">
+                    <div class="dash-input-wrapper mb-30">
+                        <label for="facility_name">Facilities*</label>
+                        <select class="nice-select" name="facility_name[]" id="facility_name">
+                            <option value="">Select Facility</option>
+                            <option value="Hospital">Hospital</option>
+                            <option value="SuperMarket">Super Market</option>
+                            <option value="School">School</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Pharmacy">Pharmacy</option>
+                            <option value="Airport">Airport</option>
+                            <option value="Railways">Railways</option>
+                            <option value="Bus Stop">Bus Stop</option>
+                            <option value="Beach">Beach</option>
+                            <option value="Mall">Mall</option>
+                            <option value="Bank">Bank</option>
                         </select>
                     </div>
                     <!-- /.dash-input-wrapper -->
                 </div>
-                <div class="col-lg-4">
-                    <div class="dash-input-wrapper mb-25">
-                        <label for="">City*</label>
-                        <select class="nice-select">
-                            <option value="0">Select City</option>
-                            <option>Dhaka</option>
-                            <option>Tokyo</option>
-                            <option>Delhi</option>
-                            <option>Shanghai</option>
-                            <option>Mumbai</option>
-                            <option>Bangalore</option>
-                        </select>
+
+                <div class="col-md-4">
+                    <div class="dash-input-wrapper mb-30">
+                        <label for="distance">Distance*</label>
+                        <input type="text" name="distance[]" id="distance" placeholder="Distance (Km)">
                     </div>
                     <!-- /.dash-input-wrapper -->
                 </div>
-                <div class="col-lg-4">
-                    <div class="dash-input-wrapper mb-25">
-                        <label for="">State*</label>
-                        <select class="nice-select">
-                            <option value="0">Select State</option>
-                            <option>Dhaka</option>
-                            <option>Tokyo</option>
-                            <option>Delhi</option>
-                            <option>Shanghai</option>
-                            <option>Mumbai</option>
-                            <option>Bangalore</option>
-                        </select>
+
+                <div class="col-md-4">
+                    <div class="dash-input-wrapper mb-30" style="padding-top: 30px;">
+                        <a class="btn btn-success addeventmore"><i class="fa fa-plus-circle"></i> Add More..</a>
                     </div>
                     <!-- /.dash-input-wrapper -->
                 </div>
-                <div class="col-12">
-                    <div class="dash-input-wrapper mb-25">
-                        <label for="">Map Location*</label>
-                        <div class="position-relative">
-                            <input type="text" placeholder="XC23+6XC, Moiran, N105">
-                            <button class="location-pin tran3s"><img src="../images/lazy.svg"
-                                    data-src="images/icon/icon_16.svg" alt="" class="lazy-img m-auto"></button>
-                        </div>
-                        <div class="map-frame mt-30">
-                            <div class="gmap_canvas h-100 w-100">
-                                <iframe class="gmap_iframe h-100 w-100"
-                                    src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=dhaka collage&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.dash-input-wrapper -->
-                </div>
+
+
             </div>
         </div>
         <!-- /.card-box -->
-        <div class="button-group d-inline-flex align-items-center mt-30">
-            <button type="submit" class="dash-btn-two tran3s me-3">Submit Property</button>
-        </div>
     </form>
+
+
+    <div class="button-group d-inline-flex align-items-center mt-30">
+        <button type="submit" class="dash-btn-two tran3s me-3">Submit Property</button>
+    </div>
+
+
+
+
+    <!--========== Start of add multiple class with ajax ==============-->
+    <div style="visibility: hidden">
+        <div class="whole_extra_item_add" id="whole_extra_item_add">
+            <div class="whole_extra_item_delete" id="whole_extra_item_delete">
+                <div class="container mt-2">
+                    <div class="row">
+
+                        <div class="form-group col-md-4">
+                            <label for="facility_name">Facilities</label>
+                            <select name="facility_name[]" id="facility_name" class="form-control">
+                                <option value="">Select Facility</option>
+                                <option value="Hospital">Hospital</option>
+                                <option value="SuperMarket">Super Market</option>
+                                <option value="School">School</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Pharmacy">Pharmacy</option>
+                                <option value="Airport">Airport</option>
+                                <option value="Railways">Railways</option>
+                                <option value="Bus Stop">Bus Stop</option>
+                                <option value="Beach">Beach</option>
+                                <option value="Mall">Mall</option>
+                                <option value="Bank">Bank</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="distance">Distance</label>
+                            <input type="text" name="distance[]" id="distance" class="form-control"
+                                placeholder="Distance (Km)">
+                        </div>
+                        <div class="form-group col-md-4" style="padding-top: 20px">
+                            <span class="btn btn-success btn-sm addeventmore"><i class="fa fa-plus-circle">Add</i></span>
+                            <span class="btn btn-danger btn-sm removeeventmore"><i
+                                    class="fa fa-minus-circle">Remove</i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!----For Section-------->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var counter = 0;
+            $(document).on("click", ".addeventmore", function () {
+                var whole_extra_item_add = $("#whole_extra_item_add").html();
+                $(this).closest(".add_item").append(whole_extra_item_add);
+                counter++;
+            });
+            $(document).on("click", ".removeeventmore", function (event) {
+                $(this).closest("#whole_extra_item_delete").remove();
+                counter -= 1
+            });
+        });
+    </script>
+    <!--========== End of add multiple class with ajax ==============-->
 
 
 

@@ -18,7 +18,7 @@
 						<div class="col-sm-12 form-group">
 							<div class="dash-input-wrapper mb-30">
 								<label for="">Amenitie Name</label>
-								<input type="text" name="amenities_name">
+								<input type="text" name="amenities_name" required>
                                
 							</div>
 							<!-- /.dash-input-wrapper -->

@@ -7,7 +7,7 @@
     <h2 class="main-title d-block d-lg-none">Add Property</h2>
 
     <div>
-        <form id="myForm" method="" action="" enctype="multipart/form-data">
+        <form id="myForm" method="POST" action="{{ route('store.property') }}" enctype="multipart/form-data">
             @csrf
 
             <div class="bg-white card-box border-20 mt-40">
@@ -230,7 +230,7 @@
                     <div class="col-md-12">
                         <div class="dash-input-wrapper mb-30">
                             <label for="">Short Description*</label>
-                            <textarea class="size-md" placeholder="Write a short description about property..."></textarea>
+                            <textarea name="short_desc" class="size-md" placeholder="Write a short description about property..."></textarea>
                         </div>
                     </div>
                     <!-- /.dash-input-wrapper -->
@@ -238,7 +238,7 @@
                     <div class="col-md-12">
                         <div class="dash-input-wrapper mb-30">
                             <label for="">Long Description*</label>
-                            <textarea class="size-lg" placeholder="Write a long description about property..."></textarea>
+                            <textarea name="long_desc" class="size-lg" placeholder="Write a long description about property..."></textarea>
                         </div>
                     </div>
                     <!-- /.dash-input-wrapper -->

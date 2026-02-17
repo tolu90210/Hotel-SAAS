@@ -20,6 +20,7 @@
                         <th scope="col">Status Type</th>
                         <th scope="col">City</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Property Code</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -39,7 +40,7 @@
                             </div>
                         </td>
 
-                        <td>{{ $item->ptype_id }}</td>
+                        <td>{{ $item['type']['type_name'] }}</td>
 
                         <td>{{ $item->property_status }}</td>
 
@@ -54,6 +55,8 @@
                             @endif
                             
                         </td>
+
+                        <td>{{ $item->property_code }}</td>
 
                         <td>
                             <div class="action-dots float-end">

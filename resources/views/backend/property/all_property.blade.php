@@ -33,8 +33,8 @@
                                 <img src="{{ asset($item->property_thumbnail) }}" alt="" class="p-img">
                                 <div class="ps-lg-4 md-pt-10">
                                     <a href="#" class="property-name tran3s color-dark fw-500 fs-20 stretched-link">{{ $item->property_name }}</a>
-                                    <div class="address">Mirpur 10, dhaka, BD</div>
-                                    <strong class="price color-dark">$32,800</strong>
+                                    <div class="address">{{ $item->address }}</div>
+                                    <strong class="price color-dark">${{ $item->max_price }}</strong>
                                 </div>
                             </div>
                         </td>

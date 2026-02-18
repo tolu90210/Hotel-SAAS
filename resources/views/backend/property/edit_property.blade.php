@@ -7,8 +7,10 @@
     <h2 class="main-title d-block d-lg-none">Edit Property</h2>
 
     <div>
-        <form id="myForm" method="POST" action="{{ route('store.property') }}" enctype="multipart/form-data">
+        <form id="myForm" method="POST" action="{{ route('update.property') }}" enctype="multipart/form-data">
             @csrf
+
+            <input type="hidden" name="id" value="{{ $property->id }}">
 
             <div class="bg-white card-box border-20 mt-40">
 
@@ -264,7 +266,7 @@
 
 
             <div class="button-group d-inline-flex align-items-center mt-30">
-                <button type="submit" class="dash-btn-two tran3s me-3">Submit Property</button>
+                <button type="submit" class="dash-btn-two tran3s me-3">Update Property</button>
             </div>
         </form>
 

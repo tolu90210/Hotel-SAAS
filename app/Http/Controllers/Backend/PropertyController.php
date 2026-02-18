@@ -136,7 +136,8 @@ class PropertyController extends Controller
         return redirect()->route('all.property')->with($notification);
     }
 
-    public function EditProperty($id){
+    public function EditProperty($id)
+    {
 
         $property = Property::findOrFail($id);
 
@@ -146,9 +147,57 @@ class PropertyController extends Controller
         $propertytype = ProperyType::latest()->get();
 
         $amenities = Amenities::latest()->get();
-        
+
         $activeAgent = User::where('status', '1')->where('role', 'agent')->latest()->get();
 
         return view('backend.property.edit_property', compact('property', 'propertytype', 'amenities', 'activeAgent', 'property_amenities'));
+    }
+
+    public function UpdateProperty(Request $request)
+    {
+
+        $amen = $request->amenities_id;
+        $amenities = implode(",", $amen);
+
+        $property_id = $request->id;
+
+        Property::findOrFail($property_id)->update([
+            'ptype_id' => $request->ptype_id,
+            'amenities_id' => $amenities,
+            'property_name' => $request->property_name,
+            'property_slug' => strtolower(str_replace(' ', '-', $request->property_name)),
+            'property_status' => $request->property_status,
+
+            'lowest_price' => $request->lowest_price,
+            'max_price' => $request->max_price,
+            'short_desc' => $request->short_desc,
+            'long_desc' => $request->long_desc,
+            'bedrooms' => $request->bedrooms,
+            'bathrooms' => $request->bathrooms,
+            'garage' => $request->garage,
+            'garage_size' => $request->garage_size,
+
+            'property_size' => $request->property_size,
+            'property_video' => $request->property_video,
+            'address' => $request->address,
+            'city' => $request->city,
+            'state' => $request->state,
+            'postal_code' => $request->postal_code,
+
+            'neighborhood' => $request->neighborhood,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
+            'featured' => $request->featured,
+            'hot' => $request->hot,
+            'agent_id' => $request->agent_id,
+            'updated_at' => Carbon::now(),
+        ]);
+
+        $notification = array(
+            'message' => 'Property Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.property')->with($notification);
     }
 }

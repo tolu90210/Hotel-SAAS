@@ -24,8 +24,8 @@
                                     <td>{{ $item->amenities_name }}</td>
                                     <td>
 										<div class="d-flex justify-content-end btns-group">
-											<a href="{{ route('edit.amenitie', $item->id) }}"><i class="fa-sharp fa-regular fa-eye" data-bs-toggle="tooltip" title="Edit"></i></a>
-											<a href="{{ route('delete.amenitie', $item->id) }}" id="delete" title="Delete"><i class="fa-regular fa-trash"></i></a>
+											<a href="{{ route('edit.amenitie', $item->id) }}"><i class="fa-sharp fa-regular fa-eye" title="Edit"></i></a>
+											<a href="{{ route('delete.amenitie', $item->id) }}" id="delete" title="Delete"><i class="fa-regular fa-trash" title="Delete"></i></a>
 										</div>
 									</td>
                                 </tr>

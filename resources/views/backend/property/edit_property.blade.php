@@ -353,7 +353,7 @@
                                     <td>
 										<div class="d-flex justify-content-end btns-group">
 											<input type="submit" class="btn btn-primary" value="Update Image">
-                                            <a href="" class="btn btn-danger text-white" id="delete">Delete Image</a>
+                                            <a href="{{ route('property.multiimage.delete',$img->id) }}" class="btn btn-danger text-white" id="delete">Delete Image</a>
 										</div>
                                         
 									</td>

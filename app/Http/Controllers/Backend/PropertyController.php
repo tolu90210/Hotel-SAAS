@@ -144,13 +144,15 @@ class PropertyController extends Controller
         $amenities_type = $property->amenities_id;
         $property_amenities = explode(",", $amenities_type);
 
+        $multiImage = MultiImage::where('property_id',$id)->get();
+
         $propertytype = ProperyType::latest()->get();
 
         $amenities = Amenities::latest()->get();
 
         $activeAgent = User::where('status', '1')->where('role', 'agent')->latest()->get();
 
-        return view('backend.property.edit_property', compact('property', 'propertytype', 'amenities', 'activeAgent', 'property_amenities'));
+        return view('backend.property.edit_property', compact('property', 'propertytype', 'amenities', 'activeAgent', 'property_amenities', 'multiImage'));
     }
 
     public function UpdateProperty(Request $request)
@@ -199,5 +201,69 @@ class PropertyController extends Controller
         );
 
         return redirect()->route('all.property')->with($notification);
+    }
+
+    public function UpdatePropertyThumbnail(Request $request)
+    {
+
+        $pro_id = $request->id;
+        $oldImage = $request->old_img;
+
+        if ($request->hasFile('property_thumbnail')) {
+            $pthumbnail = $request->file('property_thumbnail');
+
+            $manager = new ImageManager(new Driver());
+            $name_gen = hexdec(uniqid()) . '.' . $pthumbnail->getClientOriginalExtension();
+
+            $manager->read($pthumbnail)
+                ->resize(105, 105)
+                ->save(public_path('upload/property/thumbnail/' . $name_gen));
+
+            $save_url = 'upload/property/thumbnail/' . $name_gen;
+
+            if ($oldImage && file_exists(public_path($oldImage))) {
+                unlink(public_path($oldImage));
+            }
+
+            Property::findOrFail($pro_id)->update([
+                'property_thumbnail' => $save_url,
+                'updated_at' => Carbon::now(),
+            ]);
+        }
+
+
+        $notification = array(
+            'message' => 'Property Main Thumbnail Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
+    public function UpdatePropertyMultiimage(Request $request){
+
+        $imgs = $request->multi_img;
+
+        foreach ($imgs as $id => $img) {
+            $imgDel = MultiImage::findOrFail($id);
+            unlink($imgDel->photo_name);
+            
+            $manager = new ImageManager(new Driver());
+            $make_name = hexdec(uniqid()) . '.' . $img->getClientOriginalExtension();
+            $manager->read($img)->resize(1120, 700)->save(public_path('upload/property/multi_image/' . $make_name));
+            $uploadPath = 'upload/property/multi_image/' . $make_name;
+
+            MultiImage::where('id',$id)->update([
+                'photo_name' => $uploadPath,
+                'updated_at' => Carbon::now(),
+            ]);
+        }
+
+        $notification = array(
+            'message' => 'Property MultiImage Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
     }
 }

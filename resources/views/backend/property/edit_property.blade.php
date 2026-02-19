@@ -275,8 +275,101 @@
 
 
 
+{{-- Property Thumbnail --}}
+<div>
+    <form id="myForm" method="POST" action="{{ route('update.property.thumbnail') }}" enctype="multipart/form-data">
+        @csrf
+        
+        <input type="hidden" name="id" value="{{ $property->id }}">
+        <input type="hidden" name="old_img" value="{{ $property->property_thumbnail }}">
+        
+        <div class="bg-white card-box border-20 mt-40">
+            
+            <h4 class="dash-title-three">Update Property Main Thumbnail Image</h4>
+            
+            <div class="row align-items-end">
+                
+                <div class="col-md-6">
+
+                    <div class="form-group dash-input-wrapper mb-30">
+                        
+                        
+                        
+                        <div class="user-avatar-setting d-flex align-items-center mb-30">
+                            
+                            <img id="mainThmb" src="{{ asset($property->property_thumbnail) }}" style="width: 100px; height: 100px;">
+                            
+                            <div class="upload-btn position-relative tran3s ms-4 me-3">
+                                Upload main thumbnail
+                                <input type="file" id="image" name="property_thumbnail" onchange="mainThamUrl(this)" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.dash-input-wrapper -->
+                </div>
+            </div>
+        </div>
+
+        <div class="button-group d-inline-flex align-items-center mt-30">
+            <button type="submit" class="dash-btn-two tran3s me-3">Update Main Thumbnail Image</button>
+        </div>
+    </form>
+</div>
+{{-- End Property Thumbnail --}}
 
 
+{{-- Property MultiImage --}}
+<div>
+    <form id="myForm" method="POST" action="{{ route('update.property.multiimage') }}" enctype="multipart/form-data">
+        @csrf
+        
+        
+        <div class="bg-white card-box border-20 mt-40">
+            
+            <h4 class="dash-title-three">Update Property MultiImage</h4>
+            
+            <div class="row align-items-end">
+                
+                <div class="table-responsive pt-25 pb-25 pe-4 ps-4">
+                        <table class="table saved-search-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sl</th>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Change Image</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody class="border-0">
+                                @foreach ($multiImage as $key => $img)
+                                <tr>
+                                    <td>{{ $key+1 }}</td>
+                                    <td>
+                                        <img src="{{ asset($img->photo_name) }}" alt="" style="width: 50px; height: 50px; border-radius: 30px;">
+                                    </td>
+                                    <td>
+                                        <input type="file" name="multi_img[{{ $img->id }}]" class="form-control">
+                                    </td>
+                                    <td>
+										<div class="d-flex justify-content-end btns-group">
+											<input type="submit" class="btn btn-primary" value="Update Image">
+                                            <a href="" class="btn btn-danger text-white" id="delete">Delete Image</a>
+										</div>
+                                        
+									</td>
+                                </tr>
+                                @endforeach
+                                
+                            </tbody>
+                        </table>
+                        <!-- /.table saved-search-table -->
+                    </div>
+                
+            </div>
+        </div>
+    </form>
+</div>
+{{-- Property MultiImage --}}
     
 
 

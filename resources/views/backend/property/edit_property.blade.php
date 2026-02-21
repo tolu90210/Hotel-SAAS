@@ -337,7 +337,7 @@
                                     <th scope="col">Sl</th>
                                     <th scope="col">Image</th>
                                     <th scope="col">Change Image</th>
-                                    <th scope="col">Delete</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody class="border-0">
@@ -359,6 +359,46 @@
 									</td>
                                 </tr>
                                 @endforeach
+                                
+                            </tbody>
+                        </table>
+                        <!-- /.table saved-search-table -->
+                    </div>
+                
+            </div>
+        </div>
+    </form>
+
+    <form id="myForm" method="POST" action="{{ route('store.new.multiimage') }}" enctype="multipart/form-data">
+        @csrf
+        
+        <input type="hidden" name="imageid" value="{{ $property->id }}">
+
+        <div class="bg-white card-box border-20 mt-40">
+            
+            <div class="row align-items-end">
+                
+                <div class="table-responsive pt-25 pb-25 pe-4 ps-4">
+                        <table class="table saved-search-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Add Image</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="border-0">
+                                
+                                <tr>
+                                    <td>
+                                        <input type="file" name="multi_img" class="form-control">
+                                    </td>
+                                    <td>
+										<div class="d-flex justify-content-end btns-group">
+											<input type="submit" class="btn btn-info text-white" value="Add Image">
+										</div>
+									</td>
+                                </tr>
+                                
                                 
                             </tbody>
                         </table>

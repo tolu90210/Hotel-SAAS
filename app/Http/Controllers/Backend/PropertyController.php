@@ -340,5 +340,32 @@ class PropertyController extends Controller
         return redirect()->back()->with($notification);
 
     }
+
+    public function DeleteProperty($id){
+
+        $property = Property::findOrFail($id);
+        unlink(($property->property_thumbnail));
+
+        Property::findOrFail($id)->delete();
+
+        $images = MultiImage::where('property_id', $id)->get();
+        foreach ($images as $image) {
+            unlink($image->photo_name);
+            MultiImage::where('property_id', $id)->delete();
+        }
+
+        $facilities = Facility::where('property_id', $id)->get();
+        foreach ($facilities as $facility) {
+            $facility->facility_name;
+            Facility::where('property_id', $id)->delete();
+        }
+
+        $notification = array(
+            'message' => 'Property Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
 }
 

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\ProperyType;
+use App\Models\User;
 
 class Property extends Model
 {
@@ -12,5 +13,9 @@ class Property extends Model
 
     public function type(){
         return $this->belongsTo(ProperyType::class,'ptype_id','id');
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class,'agent_id','id');
     }
 }

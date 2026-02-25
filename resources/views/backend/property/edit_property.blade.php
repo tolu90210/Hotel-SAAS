@@ -219,6 +219,7 @@
                     <!-- /.dash-input-wrapper -->
 
                     <hr>
+
                 </div>
             </div>
             <!-- /.card-box -->
@@ -271,6 +272,26 @@
         </form>
 
     </div>
+
+    <div>
+        <div class="bg-white card-box border-20 mt-40">
+            <h4 class="dash-title-three m0 pb-5">Change Property Activity Status</h4>
+            @if ($property->status == 1)
+            <form method="POST" action="{{ route('inactive.property') }}" >
+                @csrf
+                <input type="hidden" name="id" value="{{ $property->id }}">
+                <button type="submit" class="btn btn-danger">Inactivate Property</button>
+            </form>
+            @else
+            <form method="POST" action="{{ route('active.property') }}" >
+                @csrf
+                <input type="hidden" name="id" value="{{ $property->id }}">
+                <button type="submit" class="btn btn-success">Activate Property</button>
+            </form>    
+            @endif
+        </div>
+    </div>
+    <!-- /.card-box -->
 
 
 

@@ -65,8 +65,8 @@
                                     <span></span>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end">
-                                    <li><a class="dropdown-item" href="{{ route('edit.property', $item->id) }}"><i class="fa-sharp fa-regular fa-eye" title="Edit"></i> Edit</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('delete.property', $item->id) }}" id="delete"><i class="fa-regular fa-trash" title="Delete"></i> Delete</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('edit.property', $item->id) }}"><i class="fa-sharp fa-regular fa-edit" title="Edit"></i> Edit</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('delete.property', $item->id) }}" id="delete"><i class="fa-sharp fa-regular fa-trash" title="Delete"></i> Delete</a></li>
                                 </ul>
                             </div>
                         </td>

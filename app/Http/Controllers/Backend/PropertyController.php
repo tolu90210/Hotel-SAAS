@@ -367,5 +367,35 @@ class PropertyController extends Controller
 
         return redirect()->back()->with($notification);
     }
+
+    public function InactiveProperty(Request $request){
+
+        $pid = $request->id;
+        Property::findOrFail($pid)->update([
+            'status' => 0,
+        ]);
+
+        $notification = array(
+            'message' => 'Property Inactivated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
+    public function ActiveProperty(Request $request){
+        
+        $pid = $request->id;
+        Property::findOrFail($pid)->update([
+            'status' => 1,
+        ]);
+
+        $notification = array(
+            'message' => 'Property Activated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
 }
 
